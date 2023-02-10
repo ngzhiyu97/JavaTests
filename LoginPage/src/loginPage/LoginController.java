@@ -11,6 +11,10 @@ package loginPage;
  */
 public class LoginController {
 	
+
+	private void loginFunction() {
+		System.out.println("abc");
+	}
 	
 	
 }
