@@ -8,6 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+
+import java.awt.Dimension;
+import java.awt.Font;
+
 import javax.swing.BorderFactory;
 
 
@@ -36,6 +40,7 @@ public class LoginView {
 		userNameLabel.setSize(labelWidth, labelHeight);
 		passwordLabel.setSize(labelWidth, labelHeight);
 		loginButton.setSize(buttonWidth, buttonHeight);
+		titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		
 		// Add borders
 		// Top set to 0 on the text fields to make it closer to the label describing what should be written in the field.
@@ -55,11 +60,11 @@ public class LoginView {
 		
 		listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.PAGE_AXIS));
 		listPanel.add(titleLabel);
-		listPanel.add(Box.createGlue());
 		listPanel.add(userNameLabel);
 		listPanel.add(userNameField);
 		listPanel.add(passwordLabel);
 		listPanel.add(passwordField);
+		listPanel.add(Box.createRigidArea(new Dimension(0, borderGap)));
 		listPanel.add(loginButton);
 		loginFrame.add(listPanel);
 		loginFrame.pack();
