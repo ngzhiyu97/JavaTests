@@ -1,4 +1,5 @@
 package loginPage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,6 +7,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /*
  * An SQL server database is used for the storage of the user's login details. 
@@ -63,10 +66,10 @@ public class LoginController implements ActionListener{
 					loginView.messageDialog("Login successful!");
 					return true;
 				}
-				loginView.messageDialog("Password is incorrect! Please check again.");
+				loginView.messageDialog("Invalid userid or password.");
 				return false;
 			}
-			loginView.messageDialog("Username is incorrect! Please check again.");
+			loginView.messageDialog("Invalid userid or password.");
 			return false;
 		}
 		catch(SQLException | ClassNotFoundException e){
@@ -92,6 +95,7 @@ public class LoginController implements ActionListener{
 		}
 
 	}
+	
 	
 	
 	

@@ -30,7 +30,7 @@ public class LoginView implements PageView{
 	
 	public LoginView(LoginController loginController) {
 		// Initializes the login view
-		loginFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		usernameLabel.setSize(labelWidth, labelHeight);
 		passwordLabel.setSize(labelWidth, labelHeight);
 		loginButton.setSize(buttonWidth, buttonHeight);
@@ -57,6 +57,8 @@ public class LoginView implements PageView{
 		
 		// Add an ActionListener to the button
 		loginButton.addActionListener(loginController);
+		// Make the "Enter" key activate the login button
+		loginFrame.getRootPane().setDefaultButton(loginButton);
 		
 		listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.PAGE_AXIS));
 		listPanel.add(titleLabel);
@@ -87,6 +89,7 @@ public class LoginView implements PageView{
 	
 	public void messageDialog(String message) {
 		JDialog loginDialog = new JDialog();
+		loginDialog.setModalityType(JDialog.DEFAULT_MODALITY_TYPE);
 		loginDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		JLabel loginMessage = new JLabel(message);	
 		loginMessage.setFont(new Font("Arial", Font.BOLD, 20));
