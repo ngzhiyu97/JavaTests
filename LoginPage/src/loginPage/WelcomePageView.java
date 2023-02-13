@@ -37,7 +37,7 @@ public class WelcomePageView implements PageView{
 	private final JPanel listPanel = new JPanel();
 	
 	public WelcomePageView(LoginController loginController) {
-		welcomePage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		usernameLabel.setSize(labelWidth, labelHeight);
 		nameLabel.setSize(labelWidth, labelHeight);
@@ -72,8 +72,7 @@ public class WelcomePageView implements PageView{
 		logoutButton.addActionListener(loginController);
 		// Add mouse adapter webpageLink label
 		webpageLink.addMouseListener(new HyperlinkController(webpage));
-		
-		
+				
 		listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.PAGE_AXIS));
 		listPanel.add(titleLabel);
 		listPanel.add(usernameLabel);
@@ -109,6 +108,7 @@ public class WelcomePageView implements PageView{
 
 	public void messageDialog(String message) {
 		JDialog logoutDialog = new JDialog();
+		logoutDialog.setModalityType(JDialog.DEFAULT_MODALITY_TYPE);
 		logoutDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		JLabel logoutMessage = new JLabel(message);	
 		logoutMessage.setFont(new Font("Arial", Font.BOLD, 20));
